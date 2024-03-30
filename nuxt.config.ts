@@ -14,12 +14,16 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
     "nuxt-lodash",
-    "nuxt-svgo"
+    "nuxt-svgo",
+    "@pinia/nuxt"
   ],
   svgo: {
     autoImportPath: "./assets/images/icons",
     componentPrefix: "i",
   },
+  // pinia: {
+  //   autoImports: ["defineStore"]
+  // },
   app: {
     head: {
       title: "Trang tin tức",
@@ -67,6 +71,7 @@ export default defineNuxtConfig({
   },
   imports: {
     autoImport: true,
+    dirs: ["./stores"]
   },
   plugins: ["~/plugins/string-plugins.js"],
 });

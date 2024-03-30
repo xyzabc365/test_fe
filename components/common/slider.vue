@@ -1,7 +1,7 @@
 <template>
 
     <div :id="slideId" class="swiper w-full" v-if="type == 0">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper">    
             <div class="swiper-slide w-full overflow-hidden" v-for="item in data">
                 <a :href="item.link" class="whitespace-nowrap h-full flex items-center hover:decoration-solid hover:underline w-full line-clamp-1 hover:text-red">
                     {{item.title}}
@@ -91,7 +91,7 @@ import PostCard from '~/components/common/postCard'
 const props = defineProps({
     slideId: String,
     type: Number || 1,
-    data: Object
+    data: Object || []
 })
 
 onMounted(() => {

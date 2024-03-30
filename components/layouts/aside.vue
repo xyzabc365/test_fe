@@ -42,16 +42,13 @@
         <div class="flex flex-col gap-4">
             <Heading content="Tranding"></Heading>
             <div class="flex flex-col gap">
-                <PostCard :type="2" postImg="/images/example-2.jpeg" 
-                                    postTitle="Est stet amet ipsum stet clita rebum duo"
-                                    postDate="January 01, 2045"
-                                    postCategory="Technology"
-                                    postLink="#"></PostCard>
-                <PostCard :type="2" postImg="/images/example-2.jpeg" 
-                                    postTitle="Est stet amet ipsum stet clita rebum duo"
-                                    postDate="January 01, 2045"
-                                    postCategory="Technology"
-                                    postLink="#"></PostCard>
+                <ClientOnly>
+                    <PostCard :type="2" :postImg="item.postImg" 
+                                    :postTitle="item.postTitle"
+                                    :postDate="item.postDate"
+                                    :postCategory="item.postCategory"
+                                    :postLink="item.postLink" v-for="item in dummyData"></PostCard>
+                </ClientOnly>
             </div>
         </div>
         <!-- Popular News End -->
@@ -106,4 +103,7 @@ import Tags from '~/components/common/tags'
 import SocialLink from '~/components/common/socialLink'
 import Heading from '~/components/common/heading'
 import PostCard from '~/components/common/postCard'
+
+const dummyListStore = useDummyData()
+let dummyData = dummyListStore.dummyData
 </script>

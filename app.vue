@@ -2,10 +2,10 @@
   <Html>
 
   <Body class="antialiased text-grayCustom bg-grayCustom2">
-      <NuxtLayout>
-          <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
-          <NuxtPage />
-      </NuxtLayout>
+    <NuxtLayout>
+      <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
+      <NuxtPage />
+    </NuxtLayout>
   </Body>
 
   </Html>
@@ -20,7 +20,18 @@ onMounted(() => {
 
 useHead({
   htmlAttrs: {
-      lang: 'vi',
+    lang: 'vi',
   },
 })
+
+
+const dummyDataStore = useDummyData()
+try {
+  const res = await $fetch('data.json')
+  dummyDataStore.setDummyData(JSON.parse(JSON.stringify(res)).data)
+} catch {
+  dummyDataStore.setDummyData([])
+}
+
+
 </script>
