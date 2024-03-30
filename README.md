@@ -15,3 +15,6 @@ Em đã xong layout 3 trang: Homepage, Category, Detail.
 2/ Đã cắt các phần hay sử dụng lại thành các components, anh check giúp e ạ.
 3/ Phần slider e có add dummy data (như data trả về từ call api).
 4/ Đã thêm dynamic route cho các bài viết (dummy data)
+
+Test:
+https://main.d3r3b92z3wjrg3.amplifyapp.com/
