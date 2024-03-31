@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "categoryId": 1,
+      "categoryName": "Business"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Technology"
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Entertainment"
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Sports"
+    }
+  ]
+}

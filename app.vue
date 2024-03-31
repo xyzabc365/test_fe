@@ -27,11 +27,13 @@ useHead({
 
 const dummyDataStore = useDummyData()
 try {
-  const res = await $fetch('data.json')
-  dummyDataStore.setDummyData(JSON.parse(JSON.stringify(res)).data)
+  const res = await $fetch('data_article.json')
+  const resCategory = await $fetch('data_category.json')
+  dummyDataStore.setDummyArticle(JSON.parse(JSON.stringify(res)).data)
+  dummyDataStore.setDummyCategory(JSON.parse(JSON.stringify(resCategory)).data)
 } catch {
-  dummyDataStore.setDummyData([])
+  dummyDataStore.setDummyArticle([])
+  dummyDataStore.setDummyCategory([])
 }
-
 
 </script>

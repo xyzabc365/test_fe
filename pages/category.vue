@@ -18,12 +18,12 @@
                     </div>
                     <!-- End Block Technology -->
 
-                    <a href="#"><img class="h-auto w-full max-w-full" src="/images/ads.jpg" alt="" /></a>
+                    <NuxtLink to="#"><img class="h-auto w-full max-w-full" src="/images/ads.jpg" alt="" /></NuxtLink>
 
                     <!-- Block Lastest -->
                     <div class="flex flex-col gap-4">
                         <Heading content="Lastest">
-                            <a class="font-weight-medium text-decoration-none text-grayCustom6" href="">View All</a>
+                            <NuxtLink class="font-weight-medium text-decoration-none text-grayCustom6" to="">View All</NuxtLink>
                         </Heading>
                         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 gap-y">
                             <ClientOnly>
@@ -54,6 +54,7 @@ import Heading from '~/components/common/heading'
 import PostCard from '~/components/common/postCard'
 import Pagination from '~/components/common/pagination'
 import Breadcrumbs from '~/components/common/breadcrumbs'
+
 const dummyListStore = useDummyData()
-let dummyData = dummyListStore.dummyData
+let dummyData = dummyListStore.dummyArticle
 </script>

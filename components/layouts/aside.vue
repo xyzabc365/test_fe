@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <a href=""><img class="h-auto w-full max-w-full" src="/images/example-4.jpeg" alt="" /></a>
+        <NuxtLink to=""><img class="h-auto w-full max-w-full" src="/images/example-4.jpeg" alt="" /></NuxtLink>
 
         <div class="flex flex-col gap-4">
             <Heading content="Tranding"></Heading>
@@ -47,7 +47,7 @@
                                     :postTitle="item.postTitle"
                                     :postDate="item.postDate"
                                     :postCategory="item.postCategory"
-                                    :postLink="item.postLink" v-for="item in dummyData"></PostCard>
+                                    :postLink="item.postLink" v-for="item in dummyArticle"></PostCard>
                 </ClientOnly>
             </div>
         </div>
@@ -105,5 +105,8 @@ import Heading from '~/components/common/heading'
 import PostCard from '~/components/common/postCard'
 
 const dummyListStore = useDummyData()
-let dummyData = dummyListStore.dummyData
+let dummyArticle = dummyListStore.dummyArticle.filter((item) => {
+        return item.isTranding == true
+})
+dummyArticle = JSON.parse(JSON.stringify(dummyArticle))
 </script>

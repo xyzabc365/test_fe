@@ -1,5 +1,8 @@
 export const useDummyData = defineStore("dummyData", () => {
-  const dummyData = ref([]);
-  const setDummyData = (data) => dummyData.value = data
-  return {dummyData, setDummyData}
+  const dummyArticle = ref([])
+  const dummyCategory = ref([])
+  const setDummyCategory = (data) => dummyCategory.value = data
+  const setDummyArticle = (data) => dummyArticle.value = data
+  
+  return {dummyArticle, dummyCategory, setDummyCategory, setDummyArticle}
 });

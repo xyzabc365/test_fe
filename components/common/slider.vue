@@ -1,18 +1,20 @@
 <template>
 
     <div :id="slideId" class="swiper w-full" v-if="type == 0">
-        <div class="swiper-wrapper">    
+        <div class="swiper-wrapper">
             <div class="swiper-slide w-full overflow-hidden" v-for="item in data">
-                <a :href="item.link" class="whitespace-nowrap h-full flex items-center hover:decoration-solid hover:underline w-full line-clamp-1 hover:text-red">
-                    {{item.title}}
-                </a>
+                <NuxtLink :to="item.link"
+                    class="whitespace-nowrap h-full flex items-center hover:decoration-solid hover:underline w-full line-clamp-1 hover:text-red">
+                    {{ item.title }}
+                </NuxtLink>
             </div>
         </div>
     </div>
 
+    <!-- Slider All post in top -->
     <div v-else-if="type == 1" :id="slideId" class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide overflow-hidden" v-for="item in data">
+            <div class="swiper-slide overflow-hidden" v-for="item in listArticle">
                 <PostCard :postImg="item.postImg" :postTitle="item.postTitle"></PostCard>
             </div>
         </div>
@@ -27,21 +29,23 @@
                 name="fa6-solid:chevron-right" />
         </button>
     </div>
+    <!-- End Slider All post in top -->
 
-
+    <!-- Slider tin chính -->
     <div v-else-if="type == 2" :id="slideId" class="swiper lg:absolute lg:top-0 lg:left-0 w-full h-full">
         <div class="swiper-wrapper">
-            <div class="swiper-slide overflow-hidden" v-for="item in data">
+            <div class="swiper-slide overflow-hidden" v-for="item in listArticle">
                 <div class="relative h-full">
                     <img class="w-full h-full object-cover" :src="item.postImg" />
                     <div class="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
                     <div class="flex flex-col gap-sm p-8 absolute bottom-0 left-0 z-20 w-full text-white">
                         <div class="text-sm">
-                            <a :href="$textToLink(item.postTitle)">{{item.postCategory}}</a>
+                            <NuxtLink to="/category">{{ item.postCategory }}</NuxtLink>
                             <span class="px-1">/</span>
-                            <span>{{item.postDate}}</span>
+                            <span>{{ item.postDate }}</span>
                         </div>
-                        <a class="font-bold leading-6 text-xl lg:text-4xl lg:leading-10 line-clamp-2" :href="$textToLink(item.postTitle)">{{item.postTitle}}</a>
+                        <NuxtLink class="font-bold leading-6 text-xl lg:text-4xl lg:leading-10 line-clamp-2"
+                            :to="$textToLink(item.postTitle)">{{ item.postTitle }}</NuxtLink>
                     </div>
                 </div>
             </div>
@@ -57,42 +61,74 @@
                 name="fa6-solid:chevron-right" />
         </button>
     </div>
+    <!-- End Slider tin chính -->
 
+    <!-- Slider feature -->
     <div v-else-if="type == 3" :id="slideId" class="swiper relative">
         <div class="swiper-wrapper">
-            <div class="swiper-slide overflow-hidden" v-for="item in data">
+            <div class="swiper-slide overflow-hidden" v-for="item in listArticle">
                 <div class="relative pb-[110%] group">
-                    <img class="absolute top-0 left-0 w-full h-full z-0 object-cover group-hover:brightness-75 duration-500 transition-all" :src="item.postImg" />
+                    <img class="absolute top-0 left-0 w-full h-full z-0 object-cover group-hover:brightness-75 duration-500 transition-all"
+                        :src="item.postImg" />
                     <div class="absolute top-0 left-0 w-full h-full bg-black/30 z-10"></div>
                     <div class="flex flex-col gap-sm p-4 absolute bottom-0 left-0 z-20 w-full text-white">
                         <div class="text-sm">
-                            <a :href="$textToLink(item.postTitle)">{{item.postCategory}}</a>
+                            <NuxtLink to="/category">{{ item.postCategory }}</NuxtLink>
                             <span class="px-1">/</span>
-                            <span>{{item.postDate}}</span>
+                            <span>{{ item.postDate }}</span>
                         </div>
-                        <a class="font-bold leading-7 text-xl line-clamp-2" :href="$textToLink(item.postTitle)">{{item.postTitle}}</a>
+                        <NuxtLink class="font-bold leading-7 text-xl line-clamp-2" :to="$textToLink(item.postTitle)">{{
+        item.postTitle }}</NuxtLink>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End Slider feature -->
 
+    <!-- Slider Block Category -->
     <div v-else-if="type == 4" :id="slideId" class="swiper relative">
         <div class="swiper-wrapper">
-            <div class="swiper-slide overflow-hidden" v-for="item in data">
-                <PostCard :type="1" :postImg="item.postImg" :postTitle="item.postTitle" :postCategory="item.postCategory" :postDate="item.postDate"></PostCard>
+            <div class="swiper-slide overflow-hidden" v-for="item in listArticle">
+                <PostCard :type="1" :postImg="item.postImg" :postTitle="item.postTitle"
+                    :postCategory="item.postCategory" :postDate="item.postDate"></PostCard>
             </div>
         </div>
     </div>
+    <!-- End Slider Block Category -->
 </template>
 
 <script setup>
 import PostCard from '~/components/common/postCard'
 const props = defineProps({
+    catId: Number,
     slideId: String,
     type: Number || 1,
     data: Object || []
 })
+
+let listArticle = []
+const dummyListStore = useDummyData()
+const dummyArticle = dummyListStore.dummyArticle
+
+if (props.type == 2) { //Slider Main
+    listArticle = dummyArticle.filter((item) => {
+        return item.isMainPost == true
+    })
+    listArticle = JSON.parse(JSON.stringify(listArticle))
+} else if (props.type == 3) { //Slider Feature
+    listArticle = dummyArticle.filter((item) => {
+        return item.isFeatured == true
+    })
+    listArticle = JSON.parse(JSON.stringify(listArticle))
+} else if (props.type == 4) { //Slider Block Category
+    listArticle = dummyArticle.filter((item) => {
+        return item.categoryId == props.catId
+    })
+    listArticle = JSON.parse(JSON.stringify(listArticle))
+} else {
+    listArticle = dummyArticle
+}
 
 onMounted(() => {
     if (props.type === 0) {

@@ -1,9 +1,9 @@
 <template>
     <nav class="mx-auto px-4 py-2 lg:py-0 lg:px-16">
         <div class="flex flex-wrap items-center justify-between">
-            <a href="/" class="flex items-center space-x-3 lg:hidden">
+            <NuxtLink to="/" class="flex items-center space-x-3 lg:hidden">
                 <img src="/images/logo.png" class="h-8" />
-            </a>
+            </NuxtLink>
             <div class="flex items-center lg:order-2 space-x-1 lg:space-x-2">
                 <button data-collapse-toggle="mega-menu" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center lg:hidden bg-gray-100 focus:outline-none"
@@ -65,7 +65,7 @@ let menu = [
     },
     {
         id: 'menu-details',
-        to: '/details',
+        to: '/post',
         text: 'Single News'
     },
     {

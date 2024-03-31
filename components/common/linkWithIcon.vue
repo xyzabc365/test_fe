@@ -1,11 +1,11 @@
 <template>
-    <a :href="link" class="group flex items-center gap-sm">
+    <NuxtLink :to="link" class="group flex items-center gap-sm">
         <Icon
             class="h-size12 w-size12 text-black"
             name="fa6-solid:chevron-right"
         />
         <span class="group-hover:underline">{{ title }}</span>
-    </a>
+    </NuxtLink>
 </template>
 
 <script setup>

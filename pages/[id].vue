@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 gap-8 py-8">
+    <div class="grid grid-cols-1 gap-8 py-8 items-start">
         <div class="container">
             <div class="grid grid-cols-1 gap-y-4 lg:grid-cols-3 lg:gap-8 items-start">
                 <div class="col-span-2 grid gap-4">
@@ -8,7 +8,7 @@
                         <img src="/images/news-big.jpeg" class="w-full" />
                         <article class="p-4 lg:p-8">
                             <div class="mb-2 lg:mb-4">
-                                <a class="text-red" href="/category">Technology</a>
+                                <NuxtLink class="text-red" to="/">Technology</NuxtLink>
                                 <span class="px-1">/</span>
                                 <span>January 28, 2025</span>
                             </div>
