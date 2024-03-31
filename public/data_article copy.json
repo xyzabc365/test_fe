@@ -39,7 +39,19 @@
       "isPopular": true,
       "isTranding": true
     },
-    
+    {
+      "postId": 4,
+      "postCategory": "Business",
+      "categoryId": 1,
+      "postImg": "/images/post4.webp",
+      "postDate": "31-3-2024",
+      "postTitle": "Vì sao nhiều dự án điện khí LNG vẫn ì ạch?",
+      "postDescription": "Theo lãnh đạo Cục Điện lực và Năng lượng tái tạo, các dự án điện khí LNG đều gặp vướng mắc trong quá trình đàm phán và chưa ký được hợp đồng PPA để chủ đầu tư thu xếp vốn.",
+      "isMainPost": true,
+      "isFeatured": false,
+      "isPopular": true,
+      "isTranding": true
+    },
     {
       "postId": 5,
       "postCategory": "Technology",
@@ -79,7 +91,19 @@
       "isPopular": true,
       "isTranding": false
     },
-    
+    {
+      "postId": 8,
+      "postCategory": "Technology",
+      "categoryId": 2,
+      "postImg": "/images/post8.webp",
+      "postDate": "31-3-2024",
+      "postTitle": "S24 series - cột mốc đưa điện thoại Samsung bước vào kỷ nguyên AI",
+      "postDescription": "Galaxy S24 series kế thừa thành công những di sản mà các phiên bản tiền nhiệm tạo dựng, đồng thời có thêm những nét chấm phá để chinh phục khách hàng.",
+      "isMainPost": false,
+      "isFeatured": true,
+      "isPopular": false,
+      "isTranding": true
+    },
     {
       "postId": 9,
       "postCategory": "Entertainment",
@@ -119,7 +143,19 @@
       "isPopular": false,
       "isTranding": true
     },
-    
+    {
+      "postId": 12,
+      "postCategory": "Entertainment",
+      "categoryId": 3,
+      "postImg": "/images/post12.webp",
+      "postDate": "31-3-2024",
+      "postTitle": "Hai năm Son Ye Jin 'hạ cánh' bên Hyun Bin",
+      "postDescription": "Ngày 31/3 đánh dấu cột mốc hai năm Son Ye Jin và Hyun Bin về chung một nhà. Hôn nhân của cặp ngôi sao nổi tiếng luôn trở thành tâm điểm truyền thông xứ kim chi.",
+      "isMainPost": true,
+      "isFeatured": true,
+      "isPopular": true,
+      "isTranding": true
+    },
     {
       "postId": 13,
       "postCategory": "Sports",
@@ -156,6 +192,19 @@
       "postDescription": "Rạng sáng 31/3, MU chỉ có trận hòa 1-1 ở vòng 30 Premier League trước chủ nhà Brentford.",
       "isMainPost": false,
       "isFeatured": true,
+      "isPopular": false,
+      "isTranding": false
+    },
+    {
+      "postId": 16,
+      "postCategory": "Sports",
+      "categoryId": 4,
+      "postImg": "/images/post16.webp",
+      "postDate": "31-3-2024",
+      "postTitle": "Leverkusen ngược dòng ngoạn mục, nâng mạch bất bại lên 39 trận",
+      "postDescription": "Đêm 30/3, Leverkusen bị dẫn trước đến phút 87 nhưng vẫn giành 3 điểm sau trận thắng 2-1 trước Hoffenheim ở vòng 27 Bundesliga.",
+      "isMainPost": true,
+      "isFeatured": false,
       "isPopular": false,
       "isTranding": false
     }
